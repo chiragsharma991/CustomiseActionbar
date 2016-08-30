@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CustomActionbar.iml" filepath="$PROJECT_DIR$/CustomActionbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CustomiseActionbar.iml" filepath="$PROJECT_DIR$/CustomiseActionbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
