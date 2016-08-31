@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CustomiseActionbar</string>
+    <string name="item1">setting</string>
+
+    <string name="item2">Help</string>
+    <string name="search">search</string>
+    <string name="action_search">search</string>
+
 </resources>
