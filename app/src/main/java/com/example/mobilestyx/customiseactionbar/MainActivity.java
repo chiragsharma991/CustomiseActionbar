@@ -1,7 +1,11 @@
 package com.example.mobilestyx.customiseactionbar;
 
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -22,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("New application");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
       //  getSupportActionBar().setSubtitle("chari sharma");
+        Intent intent=getIntent();
+        if(Intent.ACTION_SEARCH.equals(intent.getAction()))
+        { Log.e("log in action search","log");
+            String query=intent.getStringExtra(SearchManager.QUERY);
+            Toast.makeText(this,query,Toast.LENGTH_SHORT).show();
+        }
 
 
 
@@ -32,7 +42,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.e("on create option log","log");
          getMenuInflater().inflate(R.menu.main,menu);
+        SearchManager searchManager=(SearchManager)getSystemService(Context.SEARCH_SERVICE);
+
+        android.widget.SearchView searchView= (android.widget.SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+     /*   SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        android.widget.SearchView searchView = (android.widget.SearchView) menu.findItem(R.id.action_search)
+                .getActionView();
+        searchView.setSearchableInfo(searchManager
+                .getSearchableInfo(getComponentName()));*/
 
 
         return super.onCreateOptionsMenu(menu);
@@ -40,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Log.e("on optionitem select","log");
+
         switch (item.getItemId())
         {
             case R.id.help:
